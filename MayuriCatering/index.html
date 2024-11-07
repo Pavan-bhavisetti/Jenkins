@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Best South-North Authentic Indian Restaurant-Westborough, Bedford, Littleton, Lincoln, Stow, Maynard, MA</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="http://Mayurirestaurant.com/images/logo/favicon.png">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- fullCalendar -->
+  <link rel="stylesheet" href="plugins/fullcalendar/main.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Restaurantly - v1.2.1
+  * Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
+  * Author: bootstrapmade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+   <!-- <link rel="stylesheet" href="Calendar.js-main/src/calendarjs.css" />
+  <script src="Calendar.js-main/src/calendarjs.js"></script> -->
+
+  <script>
+ 
+ function passingValues() {
+   var first_name=document.getElementById("first_name").value;
+   var phone_number=document.getElementById("phone_number").value;
+   var inputDate=document.getElementById("inputDate").value;
+   var inputTime=document.getElementById("inputTime").value;
+ 
+   console.log(inputDate);
+   console.log(inputTime);
+   var radio_val  = document.querySelector('input[name = RepeatType]:checked').value;
+   // var gender = document.querySelector('input[name = gender]:checked').value;
+   console.log(radio_val);
+  // document.querySelector('input[name=""]:checked')
+   localStorage.setItem("first_name",first_name);
+   localStorage.setItem("phone_number",phone_number);
+   localStorage.setItem("inputDate",inputDate+" "+inputTime);
+   localStorage.setItem("radio_val",radio_val);
+   console.log(localStorage);
+   console.log(dt);
+  // window.location.href = "file:///C:/Users/pawan/Downloads/Mohan%20Project/Mummy/pages/ordershistory.html";
+   flipingClose();
+
+          console.log("Killer123 "+ first_selected_day +" "+first_selected_mon +" "+first_selected_year);
+          var order_date= inputDate;
+          console.log("ordered_date "+ order_date);
+          //var order_date= document.getElementById("date").innerHTML = localStorage.getItem("selected_date");
+          
+          var date1 = new Date()
+      var d   = date1.getDate(),
+          m   = date1.getMonth(),
+          y    = date1.getFullYear()
+  
+      var Calendar = FullCalendar.Calendar;
+      //console.log("Day "+d, " mon "+mon, " year "+y);
+      var calendarEl = document.getElementById('calendar');
+
+      var calendar = new Calendar(calendarEl, {
+        headerToolbar: {
+          left  : 'prev,next today',
+          center: 'title',
+          right : 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        themeSystem: 'bootstrap',
+        dateClick: function(d){
+        $(".enqView h5.modal-title").find("small").text(d.dateStr);
+          // $("#formModal h4.modal-title").find("small").text(d.dateStr);
+          // $("#formModal").modal("show");
+          //var selected_date=d.dateStr;
+          //localStorage.setItem("selected_date",selected_date);
+          //console.log(selected_date);
+          //console.log(" "+d, " "+m, " "+y);
+          fliping();
+        },
+        eventClick: function(e){
+          alert('event click');
+        },
+        eventRender: function (info){
+          // events renderring
+        },
+        //Random default events
+        events: [
+          {
+            title          : 'All Day Event',
+            start          : new Date(y, m, 1),
+            backgroundColor: '#f56954', //red
+            borderColor    : '#f56954', //red
+            allDay         : true
+          },
+          {
+            title          : 'Order Placed',
+            start          : new Date(y, m ,first_selected_day),
+            allDay         : false,
+            backgroundColor: '#0073b7', //Blue
+            borderColor    : '#0073b7' //Blue
+          },
+          {
+            title          : 'Long Event',
+            start          : new Date(y, m, d - 5),
+            end            : new Date(y, m, d - 2),
+            backgroundColor: '#f39c12', //yellow
+            borderColor    : '#f39c12' //yellow
+          },
+          {
+            title          : 'Meeting',
+            start          : new Date(y, m, d, 10, 30),
+            allDay         : false,
+            backgroundColor: '#0073b7', //Blue
+            borderColor    : '#0073b7' //Blue
+          },
+          {
+            title          : 'Lunch',
+            start          : new Date(y, m, d, 12, 0),
+            end            : new Date(y, m, d, 14, 0),
+            allDay         : false,
+            backgroundColor: '#00c0ef', //Info (aqua)
+            borderColor    : '#00c0ef' //Info (aqua)
+          },
+          {
+            title          : 'Birthday Party',
+            start          : new Date(y, m, d + 1, 19, 0),
+            end            : new Date(y, m, d + 1, 22, 30),
+            allDay         : false,
+            backgroundColor: '#00a65a', //Success (green)
+            borderColor    : '#00a65a' //Success (green)
+          },
+          {
+            title          : 'Click for Google',
+            start          : new Date(y, m, 28),
+            end            : new Date(y, m, 29),
+            url            : 'https://www.google.com/',
+            backgroundColor: '#3c8dbc', //Primary (light-blue)
+            borderColor    : '#3c8dbc' //Primary (light-blue)
+          }
+        ],
+        editable  : true,
+        droppable : true, // this allows things to be dropped onto the calendar !!!
+        drop      : function(info) {
+          // is the "remove after drop" checkbox checked?
+          if (checkbox.checked) {
+            // if so, remove the element from the "Draggable Events" list
+            info.draggedEl.parentNode.removeChild(info.draggedEl);
+          }
+        }
+      });
+
+      calendar.render();
+   
+   return true;
+ }
+
+ function billPrint() {
+  var first_name=document.getElementById("first_name").value;
+   var phone_number=document.getElementById("phone_number").value;
+   
+   var item_selected_name=document.getElementById("itemName").value;
+  // document.querySelector('input[name=""]:checked')
+   localStorage.setItem("first_name",first_name);
+   localStorage.setItem("phone_number",phone_number);
+   localStorage.setItem("item_selected_name",item_selected_name);
+   
+   console.log("Pawan "+item_selected_name);
+   console.log(localStorage);
+   console.log(dt);
+   window.location.href = "file:///D:/MayuriOC/mayuricaterordering/MayuriCatering/pages/orderbillprint.html";
+ }
+
+function calIconClick() {
+   var lable = $('.calIcon').attr("data-dd");
+   
+if(lable=="true") {
+
+   $(".calenderView").show();
+   $('.calIcon').attr('data-dd',false); //setter
+
+}
+else {
+   $(".calenderView").hide();
+   $('.calIcon').attr('data-dd',true); //setter
+
+}
+
+  
+}
+
+ 
+  </script>
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex">
+      <div class="contact-info mr-auto">
+        <i class="icofont-phone"></i> +1 5589 55488 55
+        <span class="d-none d-lg-inline-block"><i class="icofont-clock-time icofont-rotate-180"></i> Mon-Sat: 11:00 AM - 23:00 PM</span>
+      </div>
+  
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo mr-auto"><a href="index.html">Mayuri Restaurant</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="D:\MayuriOC\mayuricaterordering\MayuriCatering\index.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#specials">Specials</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#chefs">Chefs</a></li>
+          <li class="book-a-table text-center"><a onclick="fliping()" href="javascript:;">Enquiry</a></li>
+          <li class="book-a-table text-center"><a href="D:\MayuriOC\mayuricaterordering\MayuriCatering\pages\login.html">Login</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative text-center text-lg-left" data-aos="zoom-in" data-aos-delay="100">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1>Welcome to <span>Restaurantly</span></h1>
+          <h2>Delivering great food for more than 18 years!</h2>
+
+          <div class="btns">
+            <a onclick="fliping()" href="javascript:;" class="btn-menu animated fadeInUp scrollto">Enquiry</a>
+            <a href="#book-a-table" class="btn-book animated fadeInUp scrollto">Book a Table</a>
+          </div>
+        </div>
+        <div class="col-lg-4 d-flex align-items-center justify-content-center" data-aos="zoom-in" data-aos-delay="200">
+          <!-- <a href="https://www.youtube.com/watch?v=GlrxcuEDyF8" class="venobox play-btn" data-vbtype="video" data-autoplay="true"></a> -->
+        </div>
+
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+            <div class="about-img">
+              <img src="assets/img/about.jpg" alt="">
+            </div>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <p class="font-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p>
+            <ul>
+              <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+              <li><i class="icofont-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+              <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+            </ul>
+            <p>
+              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+              culpa qui officia deserunt mollit anim id est laborum
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Why Us</h2>
+          <p>Why Choose Our Restaurant</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4">
+            <div class="box" data-aos="zoom-in" data-aos-delay="100">
+              <span>01</span>
+              <h4>Lorem Ipsum</h4>
+              <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box" data-aos="zoom-in" data-aos-delay="200">
+              <span>02</span>
+              <h4>Repellat Nihil</h4>
+              <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box" data-aos="zoom-in" data-aos-delay="300">
+              <span>03</span>
+              <h4> Ad ad velit qui</h4>
+              <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+
+    <!-- ======= Menu Section ======= -->
+    <section id="menu" class="menu section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Menu</h2>
+          <p>Check Our Tasty Menu</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="menu-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-starters">Starters</li>
+              <li data-filter=".filter-salads">Salads</li>
+              <li data-filter=".filter-specialty">Specialty</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-6 menu-item filter-starters">
+            <img src="assets/img/menu/lobster-bisque.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Lobster Bisque</a><span>$5.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Lorem, deren, trataro, filede, nerada
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-specialty">
+            <img src="assets/img/menu/bread-barrel.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Bread Barrel</a><span>$6.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Lorem, deren, trataro, filede, nerada
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-starters">
+            <img src="assets/img/menu/cake.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Crab Cake</a><span>$7.95</span>
+            </div>
+            <div class="menu-ingredients">
+              A delicate crab cake served on a toasted roll with lettuce and tartar sauce
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-salads">
+            <img src="assets/img/menu/caesar.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Caesar Selections</a><span>$8.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Lorem, deren, trataro, filede, nerada
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-specialty">
+            <img src="assets/img/menu/tuscan-grilled.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Tuscan Grilled</a><span>$9.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Grilled chicken with provolone, artichoke hearts, and roasted red pesto
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-starters">
+            <img src="assets/img/menu/mozzarella.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Mozzarella Stick</a><span>$4.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Lorem, deren, trataro, filede, nerada
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-salads">
+            <img src="assets/img/menu/greek-salad.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Greek Salad</a><span>$9.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Fresh spinach, crisp romaine, tomatoes, and Greek olives
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-salads">
+            <img src="assets/img/menu/spinach-salad.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Spinach Salad</a><span>$9.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Fresh spinach with mushrooms, hard boiled egg, and warm bacon vinaigrette
+            </div>
+          </div>
+
+          <div class="col-lg-6 menu-item filter-specialty">
+            <img src="assets/img/menu/lobster-roll.jpg" class="menu-img" alt="">
+            <div class="menu-content">
+              <a href="#">Lobster Roll</a><span>$12.95</span>
+            </div>
+            <div class="menu-ingredients">
+              Plump lobster meat, mayo and crisp lettuce on a toasted bulky roll
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Menu Section -->
+
+    <!-- ======= Specials Section ======= -->
+    <section id="specials" class="specials">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Specials</h2>
+          <p>Check Our Specials</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-3">
+            <ul class="nav nav-tabs flex-column">
+              <li class="nav-item">
+                <a class="nav-link active show" data-toggle="tab" href="#tab-1">Modi sit est</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab-2">Unde praesentium sed</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab-3">Pariatur explicabo vel</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab-4">Nostrum qui quasi</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab-5">Iusto ut expedita aut</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-9 mt-4 mt-lg-0">
+            <div class="tab-content">
+              <div class="tab-pane active show" id="tab-1">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Architecto ut aperiam autem id</h3>
+                    <p class="font-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
+                    <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/specials-1.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-2">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Et blanditiis nemo veritatis excepturi</h3>
+                    <p class="font-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
+                    <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna desera vafle de nideran pal</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/specials-2.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-3">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Impedit facilis occaecati odio neque aperiam sit</h3>
+                    <p class="font-italic">Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat perferendis aut</p>
+                    <p>Iure officiis odit rerum. Harum sequi eum illum corrupti culpa veritatis quisquam. Neque necessitatibus illo rerum eum ut. Commodi ipsam minima molestiae sed laboriosam a iste odio. Earum odit nesciunt fugiat sit ullam. Soluta et harum voluptatem optio quae</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/specials-3.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-4">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Fuga dolores inventore laboriosam ut est accusamus laboriosam dolore</h3>
+                    <p class="font-italic">Totam aperiam accusamus. Repellat consequuntur iure voluptas iure porro quis delectus</p>
+                    <p>Eaque consequuntur consequuntur libero expedita in voluptas. Nostrum ipsam necessitatibus aliquam fugiat debitis quis velit. Eum ex maxime error in consequatur corporis atque. Eligendi asperiores sed qui veritatis aperiam quia a laborum inventore</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/specials-4.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="tab-5">
+                <div class="row">
+                  <div class="col-lg-8 details order-2 order-lg-1">
+                    <h3>Est eveniet ipsam sindera pad rone matrelat sando reda</h3>
+                    <p class="font-italic">Omnis blanditiis saepe eos autem qui sunt debitis porro quia.</p>
+                    <p>Exercitationem nostrum omnis. Ut reiciendis repudiandae minus. Omnis recusandae ut non quam ut quod eius qui. Ipsum quia odit vero atque qui quibusdam amet. Occaecati sed est sint aut vitae molestiae voluptate vel</p>
+                  </div>
+                  <div class="col-lg-4 text-center order-1 order-lg-2">
+                    <img src="assets/img/specials-5.png" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Specials Section -->
+
+    <!-- ======= Events Section ======= -->
+    <section id="events" class="events">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Events</h2>
+          <p>Organize Your Events in our Restaurant</p>
+        </div>
+
+        <div class="owl-carousel events-carousel" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="row event-item">
+            <div class="col-lg-6">
+              <img src="assets/img/event-birthday.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 content">
+              <h3>Birthday Parties</h3>
+              <div class="price">
+                <p><span>$189</span></p>
+              </div>
+              <p class="font-italic">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.
+              </p>
+              <ul>
+                <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                <li><i class="icofont-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+              </ul>
+              <p>
+                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                velit esse cillum dolore eu fugiat nulla pariatur
+              </p>
+            </div>
+          </div>
+
+          <div class="row event-item">
+            <div class="col-lg-6">
+              <img src="assets/img/event-private.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 content">
+              <h3>Private Parties</h3>
+              <div class="price">
+                <p><span>$290</span></p>
+              </div>
+              <p class="font-italic">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.
+              </p>
+              <ul>
+                <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                <li><i class="icofont-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+              </ul>
+              <p>
+                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                velit esse cillum dolore eu fugiat nulla pariatur
+              </p>
+            </div>
+          </div>
+
+          <div class="row event-item">
+            <div class="col-lg-6">
+              <img src="assets/img/event-custom.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 content">
+              <h3>Custom Parties</h3>
+              <div class="price">
+                <p><span>$99</span></p>
+              </div>
+              <p class="font-italic">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.
+              </p>
+              <ul>
+                <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                <li><i class="icofont-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                <li><i class="icofont-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+              </ul>
+              <p>
+                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                velit esse cillum dolore eu fugiat nulla pariatur
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Events Section -->
+
+    <!-- ======= Book A Table Section ======= -->
+    <section id="book-a-table" class="book-a-table">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Reservation</h2>
+          <p>Book a Table</p>
+        </div>
+
+        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+          <div class="form-row">
+            <div class="col-lg-4 col-md-6 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group">
+              <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group">
+              <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group">
+              <input type="text" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group">
+              <input type="number" class="form-control" name="people" id="people" placeholder="# of people" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+              <div class="validate"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+            <div class="validate"></div>
+          </div>
+          <div class="mb-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
+          </div>
+          <div class="text-center"><button type="submit">Book a Table</button></div>
+        </form>
+
+      </div>
+    </section><!-- End Book A Table Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Testimonials</h2>
+          <p>What they're saying about us</p>
+        </div>
+
+        <div class="owl-carousel testimonials-carousel" data-aos="zoom-in" data-aos-delay="100">
+
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+            <h3>Saul Goodman</h3>
+            <h4>Ceo &amp; Founder</h4>
+          </div>
+
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+            <h3>Sara Wilsson</h3>
+            <h4>Designer</h4>
+          </div>
+
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+            <h3>Jena Karlis</h3>
+            <h4>Store Owner</h4>
+          </div>
+
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+            <h3>Matt Brandon</h3>
+            <h4>Freelancer</h4>
+          </div>
+
+          <div class="testimonial-item">
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+            <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+            <h3>John Larson</h3>
+            <h4>Entrepreneur</h4>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="gallery">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Gallery</h2>
+          <p>Some photos from Our Restaurant</p>
+        </div>
+      </div>
+
+      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row no-gutters">
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-1.jpg" class="venobox" data-gall="gallery-item">
+                <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-2.jpg" class="venobox" data-gall="gallery-item">
+                <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-3.jpg" class="venobox" data-gall="gallery-item">
+                <img src="assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-4.jpg" class="venobox" data-gall="gallery-item">
+                <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-5.jpg" class="venobox" data-gall="gallery-item">
+                <img src="assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-6.jpg" class="venobox" data-gall="gallery-item">
+                <img src="assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-7.jpg" class="venobox" data-gall="gallery-item">
+                <img src="assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-8.jpg" class="venobox" data-gall="gallery-item">
+                <img src="assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Gallery Section -->
+
+    <!-- ======= Chefs Section ======= -->
+    <section id="chefs" class="chefs">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Chefs</h2>
+          <p>Our Proffesional Chefs</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="member" data-aos="zoom-in" data-aos-delay="100">
+              <img src="assets/img/chefs/chefs-1.jpg" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Walter White</h4>
+                  <span>Master Chef</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="member" data-aos="zoom-in" data-aos-delay="200">
+              <img src="assets/img/chefs/chefs-2.jpg" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Sarah Jhonson</h4>
+                  <span>Patissier</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="member" data-aos="zoom-in" data-aos-delay="300">
+              <img src="assets/img/chefs/chefs-3.jpg" class="img-fluid" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>William Anderson</h4>
+                  <span>Cook</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Chefs Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Contact Us</p>
+        </div>
+      </div>
+
+      <!-- <div data-aos="fade-up">
+        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+      </div> -->
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="icofont-google-map"></i>
+                <h4>Location:</h4>
+                <p>A108 Adam Street, New York, NY 535022</p>
+              </div>
+
+              <div class="open-hours">
+                <i class="icofont-clock-time icofont-rotate-90"></i>
+                <h4>Open Hours:</h4>
+                <p>
+                  Monday-Saturday:<br>
+                  11:00 AM - 2300 PM
+                </p>
+              </div>
+
+              <div class="email">
+                <i class="icofont-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@example.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="icofont-phone"></i>
+                <h4>Call:</h4>
+                <p>+1 5589 55488 55s</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="8" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>Restaurantly</h3>
+              <p>
+                A108 Adam Street <br>
+                NY 535022, USA<br><br>
+                <strong>Phone:</strong> +1 5589 55488 55<br>
+                <strong>Email:</strong> info@example.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Restaurantly</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/restaurantly-restaurant-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+  <div class="calIcon" onclick="calIconClick()" data-dd="true"> <img src="assets/img//calendar-512.png"  alt="" id=""></div>
+
+  <!-- <div class="modal" id="enqModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+    
+        <div class="modal-header">
+          <h4 class="modal-title">Enquiry Form</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <div class="modal-body">
+          <form id="enquiryForm">
+            <div class="form-group clearfix">
+               <label for="inputName" class="col-form-label">Name</label>
+               <div class="inputGroup">
+                  <input type="text" class="form-control" id="inputName" placeholder="Enter Name.">
+               </div>
+            </div>
+            
+            <div class="form-group clearfix">
+               <label for="inputPhoneno" class="col-form-label">Phone Number</label>
+               <div class="inputGroup">
+                  <input type="text" class="form-control" id="inputPhoneno" placeholder = "Enter Phone Number..">
+               </div>
+            </div>
+  
+            <div class="form-group clearfix">
+              <label for="inputEmail" class="col-form-label">Email Address</label>
+              <div class="inputGroup">
+                 <input type="text" class="form-control" id="inputEmail" placeholder = "Enter Email Address..">
+              </div>
+           </div>
+  
+           <div class="form-group clearfix">
+            <label for="inputCompany" class="col-form-label">Company</label>
+            <div class="inputGroup">
+               <input type="text" class="form-control" id="inputCompany" placeholder = "Enter Company..">
+            </div>
+         </div>
+            
+         <div class="form-group clearfix">
+            <label for="inputPreferred" class="col-form-label">Please tick all which apply</label>
+               <div class="inputGroup">
+                  <div class = "form-check">
+                     <input class = "form-check-input" type = "checkbox" 
+                        id = "resTblLunch" name="applyRestaurant">
+                     <label class = "form-check-label" for = "resTblLunch">
+                        Restaurant Table Lunch
+                     </label>
+                  </div>
+                  
+                  <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="resTblDinner" name="applyRestaurant" />
+                     <label class="form-check-label" for="resTblDinner">Restaurant Table Dinner</label>
+                  </div>
+  
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="pvtDinningLunch" name="applyRestaurant" />
+                    <label class="form-check-label" for="pvtDinningLunch">Private Dinning Lunch</label>
+                 </div>
+  
+                 <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="pvtDinningDinner" name="applyRestaurant" />
+                  <label class="form-check-label" for="pvtDinningDinner">Private Dinning Dinner</label>
+               </div>
+  
+               <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="dayPrtDrinks" name="applyRestaurant" />
+                <label class="form-check-label" for="dayPrtDrinks">Drinks Party Day</label>
+             </div>
+  
+             <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="eveningPrtDrinks" name="applyRestaurant" />
+              <label class="form-check-label" for="eveningPrtDrinks">Drinks Party Evening</label>
+           </div>
+  
+           <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="resOther" name="applyRestaurant" />
+            <label class="form-check-label" for="resOther">Other</label>
+         </div>
+  
+               </div>
+            </div>
+  
+            <div class="form-group clearfix">
+              <label for="inputExpectedNo" class="col-form-label">Expected Numbers</label>
+              <div class="inputGroup">
+                 <input type="text" class="form-control" id="inputExpectedNo" placeholder="Enter Expected Numbers..">
+              </div>
+           </div>
+  
+           <div class="form-group clearfix">
+            <label for="inputPreferred" class="col-form-label">Preferred Dates</label>
+            <div class="inputGroup">
+               <input type="text" class="form-control" id="inputPreferred" placeholder="Enter Preferred Dates..">
+            </div>
+         </div>
+            
+         </form>
+        </div>
+  
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div> -->
+  
+  <!-- <div class="modal" id="formModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <div class="modal-header">
+          <h4 class="modal-title">Enquiry & Order (<small></small>)</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <div class="modal-body">
+          <form class="well form-horizontal" action=" " method="post"  id="event_form">
+            <fieldset>          
+            
+              <div class="form-group">
+                <label class="control-label">Phone Number:</label>  
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                  </div>
+                  <input  name="first_name" placeholder="Phone Number" class="form-control"  type="text">
+                </div>
+              </div>
+  
+            <div class="form-group">
+              <label class="control-label">Name :</label>  
+              <div class="input-group">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                </div>
+                <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
+              </div>
+            </div>
+            
+            <div class="form-group row" style="margin: 0 0 1em;">
+              <label class="control-label">Type :</label> 
+                <div class = "clearfix">
+                  <div class="form-check-inline"  style="margin-left: 20px;">
+                    <input class = "form-check-input" type = "radio" name="mealType" id = "radioVeg" />
+                    <label class = "form-check-label" for = "radioVeg">Veg</label>
+                  </div>
+                      
+                  <div class="form-check-inline">
+                    <input class = "form-check-input" type = "radio" name="mealType" id = "radiononVeg" />
+                    <label class = "form-check-label" for = "radiononVeg">Non-Veg</label>
+                  </div>
+                  <div class="form-check-inline">
+                    <input class = "form-check-input" type = "radio" name="mealType" id = "radioboth" />
+                    <label class = "form-check-label" for = "radioboth">Both</label>
+                  </div>
+                </div>
+            </div>
+  
+            <div class="form-group">
+              <label class="control-label">Select below fields:</label>  
+              <div class="selectdropdownContainer">
+                <select id="selectCategory" class="form-control" onchange="sel1(this);">
+                  <option value="">Select Category</option>
+                </select>
+                
+                <select id="selectItems" class="form-control" onchange="sel2(this);">
+                  <option value="">Select Items</option>
+                </select>
+              </div>
+  
+              <div class="selectdropdownContainer" style="margin-top: 5px;">
+                <select id="selectSize" class="form-control" onchange="sel3(this);">
+                  <option value="">Select Size</option>
+                </select>
+                <select id="selectTray" class="form-control" onchange="sel4(this);">
+                  <option value="">Select Tray</option>
+                </select>
+              </div>
+            </div>
+  
+            <div class="flexContainer">
+              <div class="cardContainer">
+                <div class="imgContainer">
+                  <img id="imgItem" src="https://cdn2.foodviva.com/static-content/food-images/roti-paratha-recipes/garlic-naan/garlic-naan-1.jpg">
+                </div>
+                <div class="descContainer">
+                  <h6 id="itemName">Roti Paratha</h6>
+                  <p id="itemDesc">Good food is always cooking! Go ahead, order some yummy items from the menu.</p>
+                </div>
+                <div class="priceContainer">
+                  <h4 id="priceItem">$ 20.00/-</h4>
+                </div>
+              </div>
+              <p id="sizeTray"></p>
+            </div>
+  
+            <div class="form-group">
+              <label class="control-label">Date/Time :</label>  
+              <div class="input-group">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                </div>
+                <input name="inputDate" class="form-control" id="inputDate" type="date" />
+                <input type="time" class="form-control" id="inputTime" name="inputTime" />
+              </div>
+            </div>
+            
+                          
+            <div class="form-group">
+              <label class="control-label">Status:</label>  
+              <div class = "clearfix">
+                <div class="form-check-inline">
+                   <input class = "form-check-input" type = "radio" name="RepeatType" id = "radioNever" />
+                   <label class = "form-check-label" for = "radioNever">In-progress</label>
+                </div>
+                <div class="form-check-inline"  style="margin-left: 10px;">
+                   <input class = "form-check-input" type = "radio" name="RepeatType" id = "radioallDays" />
+                   <label class = "form-check-label" for = "radioallDays">Next</label>
+                </div>
+                <div class="form-check-inline"  style="margin-left: 10px;">
+                  <input class = "form-check-input" type = "radio" name="RepeatType" id = "radioDelivered" />
+                  <label class = "form-check-label" for = "radioDelivered">Delivered</label>
+               </div>
+              </div>
+              <div class = "clearfix">
+                <div class="form-check-inline">
+                   <input class = "form-check-input" type = "radio" name="RepeatType" id = "radioCancelled" />
+                   <label class = "form-check-label" for = "radioCancelled">Cancelled</label>
+                </div>
+                <div class="form-check-inline"  style="margin-left: 10px;">
+                   <input class = "form-check-input" type = "radio" name="RepeatType" id = "radioEnquiry" />
+                   <label class = "form-check-label" for = "radioEnquiry">Enquiry</label>
+                </div>
+                <div class="form-check-inline"  style="margin-left: 10px;">
+                  <input class = "form-check-input" type = "radio" name="RepeatType" id = "radioPending" />
+                  <label class = "form-check-label" for = "radioPending">Pending</label>
+               </div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="control-label">Description :</label>  
+              <div class="input-group">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-pen"></i></span>
+                </div>
+                <textarea  name="first_name" placeholder="Description" class="form-control"  rows="4"></textarea>
+              </div>
+            </div>
+                                   
+            </fieldset>
+            </form>
+        </div>
+  
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div> -->
+<div class="both-flip">
+  <div class="flip-division">
+    <div class="calenderView">  
+      <div class="contents">
+        <div id="calendar"></div>
+    </div>
+    </div>
+  <div class="enqView">
+      <div class="modal-content">
+  
+        <div class="modal-header">
+          <h5 class="modal-title">Enquiry & Order (<small></small>)</h5>
+          <button type="button" class="close" onclick="flipingClose()">&times;</button>
+        </div>
+  
+        <div class="modal-body">
+          <form class="row form-horizontal" action="orderstatus.html" method="post"  id="event_form" onsubmit="passingValues()">
+            <fieldset class="col-6">          
+              <div class="row">
+                <div class="col-6">  
+              <div class="form-group">
+                <label class="control-label">Phone Number:</label>  
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                  </div>
+                  <input  name="phone_number" placeholder="Phone Number" class="form-control"  type="text" id="phone_number">
+                </div>
+              </div>
+              </div>
+              <div class="col-6"> 
+            <div class="form-group">
+              <label class="control-label">Name :</label>  
+              <div class="input-group">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                </div>
+                <input  name="first_name" placeholder="First Name" class="form-control"  type="text" id="first_name">
+              </div>
+            </div>
+            </div>
+            </div>
+            <br>
+
+            <div class="form-group row" style="margin: 0;">
+              <label class="control-label">Order Type :</label> 
+                <div class = "clearfix">
+                  <div class="form-check-inline"  style="margin-left: 20px;">
+                    <input class = "form-check-input" type = "radio" name="mealType" id = "radioVeg" />
+                    <label class = "form-check-label" for = "radioVeg">Food Order</label>
+                  </div>
+                      
+                  <div class="form-check-inline">
+                    <input class = "form-check-input" type = "radio" name="mealType" id = "radiononVeg" />
+                    <label class = "form-check-label" for = "radiononVeg">Event Hall Booking</label>
+                  </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="form-group row" style="margin: 0;">
+              <label class="control-label">Food Type :</label> 
+                <div class = "clearfix">
+                  <div class="form-check-inline"  style="margin-left: 20px;">
+                    <input class = "form-check-input" type = "radio" name="mealType" id = "radioVeg" />
+                    <label class = "form-check-label" for = "radioVeg">Veg</label>
+                  </div>
+                      
+                  <div class="form-check-inline">
+                    <input class = "form-check-input" type = "radio" name="mealType" id = "radiononVeg" />
+                    <label class = "form-check-label" for = "radiononVeg">Non-Veg</label>
+                  </div>
+                  <div class="form-check-inline">
+                    <input class = "form-check-input" type = "radio" name="mealType" id = "radioboth" />
+                    <label class = "form-check-label" for = "radioboth">Both</label>
+                  </div>
+                </div>
+            </div>
+  
+            <div class="form-group">
+              <label class="control-label">Select below fields:</label>  
+              <div class="selectdropdownContainer">
+                <select id="selectCategory" class="form-control" onchange="sel1(this);">
+                  <option value="">Select Category</option>
+                </select>
+                
+                <select id="selectItems" class="form-control" onchange="sel2(this);">
+                  <option value="">Select Items</option>
+                </select>
+
+                <select id="selectSize" class="form-control" onchange="sel3(this);">
+                  <option value="">Select Size</option>
+                </select>
+                
+                <select id="selectTray" class="form-control" onchange="sel4(this);">
+                  <option value="">Select Tray</option>
+                </select>
+              </div>
+            </div>
+  <div class="drag">
+            <div class="flexContainer">
+              <div class="cardContainer">
+                <div class="imgContainer">
+                  <img id="imgItem" src="https://cdn2.foodviva.com/static-content/food-images/roti-paratha-recipes/garlic-naan/garlic-naan-1.jpg">
+                </div>
+                <div class="descContainer">
+                  <h6 id="itemName">Roti Paratha</h6>
+                  <p id="itemDesc">Good food is always cooking! Go ahead, order some yummy items from the menu.</p>
+                </div>
+                <div class="priceContainer">
+                  <h4 id="priceItem">$ 20.00/-</h4>
+                </div>
+              </div>
+              <p id="sizeTray"></p>
+            </div>
+          </div>                  
+            </fieldset>
+            <fieldset class="col-6 border-left">
+
+            <div class="form-group">
+              <label class="control-label">Date/Time :</label>  
+              <div class="input-group">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                </div>
+                <input name="inputDate" class="form-control" id="inputDate" type="date" />
+                <input type="time" class="form-control" id="inputTime" name="inputTime" />
+              </div>
+            </div>
+            
+                          
+            <div class="form-group" >
+              <label class="control-label">Status:</label>  
+              <div class = "clearfix">
+                <div class="form-check-inline">
+                   <input class = "form-check-input" type = "radio" name="RepeatType" id = "radioNever"  value="In-Progress"/>
+                   <label class = "form-check-label" for = "radioNever">In-progress</label>
+                </div>
+                <div class="form-check-inline"  style="margin-left: 10px;">
+                   <input class = "form-check-input" type = "radio" name="RepeatType" id = "radioallDays" value="Next"/>
+                   <label class = "form-check-label" for = "radioallDays">Next</label>
+                </div>
+                <div class="form-check-inline"  style="margin-left: 10px;">
+                  <input class = "form-check-input" type = "radio" name="RepeatType" id = "radioDelivered" value="Delivered"/>
+                  <label class = "form-check-label" for = "radioDelivered">Delivered</label>
+               </div>
+              </div>
+              <div class = "clearfix">
+                <div class="form-check-inline">
+                   <input class = "form-check-input" type = "radio" name="RepeatType" id = "radioCancelled" value="Cancelled"/>
+                   <label class = "form-check-label" for = "radioCancelled">Cancelled</label>
+                </div>
+                <div class="form-check-inline"  style="margin-left: 10px;">
+                   <input class = "form-check-input" type = "radio" name="RepeatType" id = "radioEnquiry" value="Enquiry"/>
+                   <label class = "form-check-label" for = "radioEnquiry">Enquiry</label>
+                </div>
+                <div class="form-check-inline"  style="margin-left: 10px;">
+                  <input class = "form-check-input" type = "radio" name="RepeatType" id = "radioPending" value="Pending"/>
+                  <label class = "form-check-label" for = "radioPending">Pending</label>
+               </div>
+              </div>
+              
+            </div>
+            
+            <div class="form-group">
+              <label class="control-label">Description :</label>  
+              <div class="input-group">
+                <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-pen"></i></span>
+                </div>
+                <textarea  name="first_name" placeholder="Description" class="form-control"  rows="3"></textarea>
+              </div>
+            </div>
+                   
+            <div id="dropzone"></div>
+            </fieldset>
+            </form>
+        </div>
+  
+        <div class="modal-footer">
+          <button type="print" class="btn btn-sm btn-primary" onclick="billPrint()"> Print</button>
+          <button type="submit" class="btn btn-sm btn-primary" value="Click" onclick="passingValues()">Submit</button>
+          <button type="button" class="btn btn-sm btn-danger" onclick="flipingClose()">Close</button>
+        </div>
+  
+      </div>
+  </div>
+</div>
+</div>
+  <!-- Vendor JS Files -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+
+  <!-- jQuery -->
+
+<!-- Bootstrap -->
+<!-- <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+<!-- jQuery UI -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- fullCalendar 2.2.5 -->
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/fullcalendar/main.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+
+<!-- Bootstrap -->
+
+  
+   <!-- <script src="assets/fullcalendar-daygrid/main.js"></script>
+  <script src="assets/fullcalendar-timegrid/main.js"></script>
+  <script src="assets/fullcalendar-interaction/main.js"></script>
+  <script src="assets/moment/moment.min.js"></script>
+  <script src="assets/fullcalendar/main.js"></script>
+ <script src="assets/fullcalendar-bootstrap/main.js"></script> -->
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    var dt;
+    var first_selected_day;
+          var first_selected_mon;
+          var first_selected_year;
+    function fliping() {
+      console.log("pawan1");
+      
+
+        $('.both-flip').addClass('flipped');
+        $("#imgItem").attr("src","data:image/png;base64,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");
+        $("#priceItem").html("$ 0/-");
+        $('#itemName, #itemDesc, #sizeTray').html("--");
+        $('#event_form')[0].reset();
+    }
+    function flipingClose() {
+        $('.both-flip').removeClass('flipped');
+    }
+    $(document).ready(function(){
+      $('.drag').draggable({
+  appendTo: 'body',
+  helper: 'clone' });
+
+
+$('#dropzone').droppable({
+  activeClass: 'active',
+  hoverClass: 'hover',
+  accept: ":not(.ui-sortable-helper)", 
+  drop: function (e, ui) {
+    var droppedEle = $("<div class='drop-item'>"+ui.draggable[0].outerHTML+"</div>")
+    droppedEle.append($('<button type="button" class="btn btn-default btn-xs remove">&times;</button>').click(function () { $(this).parent().detach(); }));
+    $(this).append(droppedEle);
+  } }).
+sortable({
+  items: '.drop-item',
+  sort: function () {
+    $(this).removeClass("active");
+  } });
+  //     $("#formModal").on('hidden.bs.modal', function(){
+  //       $("#imgItem").attr("src","data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAM1BMVEXu7u67u7vv7++4uLjg4ODCwsLk5OS2trby8vLd3d2+vr7q6urKysrHx8fY2NjV1dXPz8/wKvVCAAAHpUlEQVR4nO2d67qjKgyGBeQg4uH+r3YHBHW12oLVms7O92M9M2tay9twSCBhqopEIpFIJBKJRCKRSCQSiUQikUgkEolEIpFIJBKJRCKRSCQSiUQikUgk0jfFUesMwBOecaU+b9+/T4hdRPj7IsLfFxH+vojw90WEv6+7Cbl5r88ChJsJedsxAWKCrWTXknJsP2nlvYS8/kO2IyF688FnnNfc/c/Yi0V5mwPoGfvj7byckPN2VvWAabo8QEBsjzfgU4I3MkMYZ1FS/f28TBMC4XC4oRcT8kE/2GL1gbzJJmTs8Ei8mvDRFuPqA43LBxTqaEuvJXyeSrqVLbjNJ2TuqBFvJOSqoJMycbgNp5DsPv0l4VBEeHTBuJHQyAJAxuTBbnojYe5yn4x4cEm8j7BorWAP03BJG06j2Xr4FmE6UDCujBCWxEPnE9cRcsPbun+kkHUT1PdNIR/4Nc2+VGt2UC4jNCrERc/tnFVKuHb/NmSHbZirCLnT75t8rgSrt6bbawg5l+Um+ly62QrRriEc7wB8cOyvJMyObE8n7J776TWEN5kQ+ulGY64gNCVBw6na8F6vGYd3mZCx8ambXkH4yTA8ulYmPQ/ESwiLAr81ne3G3js8g5MHMZ8jEDSEQrim5cn1NKaqR3bgMWgJhe2rh917wKzL/QakhMI2m34zN6qUESehGHaDH24KQxCMhMKqV/sTvOpKnoaQUHRLG/wU4/8CE816W7XEQ8JHKJZ9UG6qZpQhqLSuX0W05imO/iHCBRBmFbdaAoWWzTw6CxCxES6xgGmfhpuwdbKjyd5axUZo08c/nuCkLyC1L3vbChlhClh5tbPsCZZC2twzDlyE6fCaV3b3DenMKfeZuAjlDPjqa4iImWsGKsLZPK/PL0Rq4+8Rxnn0rXGSqbPmU0yE0YTvXzyf4Wc8FBVhbEvGGVs8HM0aiYgI455RzgmUmDZfsjZHMBFOx4FZx6TJiBlrIiJCmW+X2d4Z3RQPoRhCU4pWuZwsOESEdfjkzL3j5N79FOHU5sydVdHkfh+ICKeRlZV9Ofdp/j7TDw+hnZqcGdrGQDlj1OIhjHNHbmSb/XI8hJNTmn0M978hfN+p8RDKf96GheMw2+R4CKec39zMr5jxlZFyi4dQ5H8XbHZMM9x0RIQq1w9bvdq8fyUiwuiHZdYjTM9t3+dZ4SGMeduZTo3LHrWICNN2d1Z8WOdONJgI09DKqUiwcbct46WYCKcFICfIj2M2KxBBRBjjp4J4IWtWQkUYE7Te9r20sZoVLWMiTHMNV6/XgBj9ZtYQoSJMe9mvT3jTIeq7LwIjIZsOB/nLoShkOkDMqz/BRTifce8jiq7wnBsX4XxEWpkdb0WkZMrsRyIjXKoKebtxzi1YyiXiWedOGAmX1HNuGvs331KwJRkscxBiJGRzKkJIqJlq88PPbkmnKQDESLgg+qSvthlGUK+qJSVqN1PjVwhFs+R9VdVzoRZvCx6GktD74C8qz0qS2rAShoKl7XaUp9DiJPSei9pg5KYtrlHESugZ/yZ6+0zTuivP18dL6JcIOSifre9vpKlUfwAPOWGAFMxK0GZtJiLC0irtM/Wdmplb656+U9lVeJfAiRLPVaTX1B8W3Qdxpr5Vf3hfDenGDSjXjMP8zPOTCb9VB+z3Nu9AjLv/XyG8oxRYsM17iK4irMCnfHMJwsmS/XaIchmhL15qVf0trUPmbxFW1Vdva99vxJWEp+um1mZ+ySbuUVTGhD9Mt1ou/2x8v56fVvkAI/1+fkl8y3Ip5ge2Pf1rUKxJ5RXOw9ROMjm2aYVumeOVlcvrZTi75/VcjGAaZ+EdteENi1mYX2t9jiCiisuxsR2Yp9PMjZ3QyVNuNXAvhQfg94V8FFhXdVgDeGu1daNjWvJGjNMUdgvJnnzMKBdCqQff2yqXECfCxSmZMm7A/RtDmgJvvVPtu/rgTKMH890emCMgdDp4jZ5w0DEl1nSTiSZC4dicSDpqmFf4oFvny4LAlnHTEcCAEBdcEFe6HrU/9vWEjKUmKt2tCIchAHvT9YHQSlPDu+Dd60vC0BJy609igLBdFcdG2Ilw5GFiMWC3AQi5pzPwK97r5dISnnrpLSC7AsLGtMJCx7SdmicYmDOnkC4Sml433mKD8YTQN/2ko5UZ9eRU+ypvmGmkAyEzpCf0I6gzLwk5lxbAmOfyWV7O+DvfRhiXgZB3UkrViG4AfXDz7hUKhBBxgHWgly6j6rGX+o6p/MgDQj8hwbKgpOD9dMkVb/pRK7y91E8zUiuYaaxYfj0NyUTos2akNcGGqbzCCoCO1V3QDRTamcYT8kpYIOyhwcEm0EnVHxv6runHnCcEc07OGcw1MpaSoicMqVuw4nd6DNcOdnFhXAiBzYWfmrtU3wY9U4EvE1zSZumluDAToR9cXRiQWnZSz+XcC+F0JbZf61epNKOBb6ZvWzWA29No1wfdBbMprtJN18Z5DqOGrnP9vHPUSuh53WrR62Uz343NXQdT6mi1FnKAbtBNko8fcq/4HINPvYuHG5OWkM//8zpMj/HW6i0xBuPL/zbwpaaTSCQSiUQikUgkEolEIpFIJBKJRCKRSCQSiUQikUgkEolEIpH+6D/+pF/9/+I9DwAAAABJRU5ErkJggg==");
+  //       $("#priceItem").html("$ 0/-");
+  //         $('#itemName, #itemDesc, #sizeTray').html("--");
+  //   $('#event_form')[0].reset();
+  // });
+
+
+          
+      var date = new Date()
+      var d    = date.getDate(),
+          m    = date.getMonth(),
+          y    = date.getFullYear()
+  
+      var Calendar = FullCalendar.Calendar;
+
+      var calendarEl = document.getElementById('calendar');
+
+      var calendar = new Calendar(calendarEl, {
+        headerToolbar: {
+          left  : 'prev,next today',
+          center: 'title',
+          right : 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        themeSystem: 'bootstrap',
+        dateClick: function(d){
+        $(".enqView h5.modal-title").find("small").text(d.dateStr);
+          // $("#formModal h4.modal-title").find("small").text(d.dateStr);
+          // $("#formModal").modal("show");
+          var selected_date=d.dateStr;
+          var first_date=selected_date
+          console.log("first");
+
+          var myString = first_date; //xml nodeValue from time element
+          var array = new Array();
+
+          //split string and store it into array
+          array = myString.split('-');
+
+          //from array concatenate into new date string format: "DD.MM.YYYY"
+          var newDate = (array[2] + "." + array[1] + "." + array[0]);
+
+           first_selected_day= array[2];
+           first_selected_mon= array[1];
+           first_selected_year= array[0];
+          console.log(newDate);
+          
+          console.log(selected_date+" "+"Kill");
+          console.log("day "+array[2], " mon "+(m+1), " "+y);
+         
+          fliping();
+        },
+        eventClick: function(e){
+          alert('event click');
+        },
+        eventRender: function (info){
+          // events renderring
+        },
+        //Random default events
+        events: [
+          {
+            title          : 'All Day Event',
+            start          : new Date(y, m, 1),
+            backgroundColor: '#f56954', //red
+            borderColor    : '#f56954', //red
+            allDay         : true
+          },
+          {
+            title          : 'Long Event',
+            start          : new Date(y, m, d - 5),
+            end            : new Date(y, m, d - 2),
+            backgroundColor: '#f39c12', //yellow
+            borderColor    : '#f39c12' //yellow
+          },
+          {
+            title          : 'Meeting',
+            start          : new Date(y, m, d, 10, 30),
+            allDay         : false,
+            backgroundColor: '#0073b7', //Blue
+            borderColor    : '#0073b7' //Blue
+          },
+          {
+            title          : 'Lunch',
+            start          : new Date(y, m, d, 12, 0),
+            end            : new Date(y, m, d, 14, 0),
+            allDay         : false,
+            backgroundColor: '#00c0ef', //Info (aqua)
+            borderColor    : '#00c0ef' //Info (aqua)
+          },
+          {
+            title          : 'Birthday Party',
+            start          : new Date(y, m, d + 1, 19, 0),
+            end            : new Date(y, m, d + 1, 22, 30),
+            allDay         : false,
+            backgroundColor: '#00a65a', //Success (green)
+            borderColor    : '#00a65a' //Success (green)
+          },
+          {
+            title          : 'Click for Google',
+            start          : new Date(y, m, 28),
+            end            : new Date(y, m, 29),
+            url            : 'https://www.google.com/',
+            backgroundColor: '#3c8dbc', //Primary (light-blue)
+            borderColor    : '#3c8dbc' //Primary (light-blue)
+          }
+        ],
+        editable  : true,
+        droppable : true, // this allows things to be dropped onto the calendar !!!
+        drop      : function(info) {
+          // is the "remove after drop" checkbox checked?
+          if (checkbox.checked) {
+            // if so, remove the element from the "Draggable Events" list
+            info.draggedEl.parentNode.removeChild(info.draggedEl);
+          }
+        }
+      });
+
+      calendar.render();
+    });
+  </script>
+
+<script>
+  var sizeArray = ["Select Size", "small", "medium", "large"];
+      var trayArray = ["Select Tray", "1 Pack", "2 Pack", "3 Pack"];
+      let selectedmealType="";
+      let result=[];
+      let propertyValues = [];
+      let itemSelected=[];
+      let sizeSelected=[];
+      const jsObjects = [
+      {FoodTypeId: "Veg", CategoryId: "Breads", Name: "Poori", image:"https://www.vegrecipesofindia.com/wp-content/uploads/2020/11/puri-1152x1536.jpg", Description: "Crispy, deep fried puffy whole wheat bread (.40 each)", ST:20, MT:30,LT:40, tray: "3M"}, 
+      {FoodTypeId: "Non-Veg", CategoryId: "Rice Items", Name: "Chicken Biryani/Boneless Chicken Biryani /Egg Biryani", image: "https://norecipes.com/wp-content/uploads/2017/05/chicken-biryani-12-1200x1799.jpg", Description: "Chicken Biryani is a delicious savory rice dish that is loaded with spicy marinated chicken, caramelized onions, and flavorful saffron rice. For my Biryani, I simplify the order of operations, while retaining the traditional layered approach to assembling it.", ST:45, MT:70,LT:90, tray: "6M"}, 
+      {FoodTypeId: "Veg", CategoryId: "Appetizers", Name: "Chilli Bhajji", image: "https://www.subbuskitchen.com/wp-content/uploads/2020/01/Chilli-Bajji_final1-1024x681-1-400x400.jpg", Description: "Green chillies batter covered deep fried stuffed with Indian spices", ST:5, MT:10,LT:15, tray: "9M"}, 
+      {FoodTypeId: "Non-Veg", CategoryId: "Appetizers", Name: "Mayuri Fish Fry", image: "https://i.pinimg.com/564x/b0/bb/9a/b0bb9ae65a4c7dc4d6e8e872a48bc693.jpg", Description: "Fish marinated & deep fried", ST:60, MT:100,LT:150, tray: "6M"},
+      {FoodTypeId: "Veg", CategoryId: "Rice Items", Name: "Veg. Biryani/Veg Fried Rice /Veg. Noodles", image: "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/04/vegetable-biryani.jpg", Description: "Veg biryani recipe with pot, pressure cooker & Instant pot options.  Vegetable biryani is an aromatic rice dish made with basmati rice, mix veggies, herbs & biryani spices.", ST:40, MT:60,LT:80, tray: "3M"},
+      {FoodTypeId: "Veg", CategoryId: "Desserts", Name: "Rice Kheer", image: "https://www.vegrecipesofindia.com/wp-content/uploads/2013/10/rice-kheer-recipe-2.jpg", Description: "Traditional Indian rice pudding with sweetened milk", ST:100, MT:200,LT:300, tray: "3M"},
+      {FoodTypeId: "Non-Veg", CategoryId: "non-veg items", Name: "Goat Gongura", image: "http://2.bp.blogspot.com/-UPIDFlRJApw/URA-yIcTT1I/AAAAAAAAHag/hhu9CClrEo8/s640/Gongura+mutton1.JPG", Description: "Goat with gongura(red sorrel leaves) cooked with special spicy curry sauce", ST:100, MT:200,LT:300, tray: "6M"},
+      {FoodTypeId: "Non-Veg", CategoryId: "Rice Items", Name: "Lamb/Goat/Shrimp Biryani", image: "https://www.indianhealthyrecipes.com/wp-content/uploads/2019/02/mutton-biryani-recipe.jpg", Description: "Simple and quick lamb biryani recipes suitable for bachelors, new cooks and busy folks. There are so many ways The success to making any good lamb or mutton biryani recipe is tender meat and cooking it the right way on a low flame or heat.", ST:100, MT:200,LT:300, tray: "9M"},
+      {FoodTypeId: "Non-Veg", CategoryId: "veg food items", Name: "Ginger Shrimp", image: "https://static.toiimg.com/thumb/75453803.cms?width=630&height=420", Description: "Shrimp marinated with ginger, spices and then cooked with tomatoes and onions", ST:100, MT:200,LT:300, tray: "6M"},
+      {FoodTypeId: "Non-Veg", CategoryId: "Appetizers", Name: "Apollo Fish", image: "https://www.indianhealthyrecipes.com/wp-content/uploads/2012/08/apollo-fish.jpg", Description: "A True Hyderbadi delight! Marinated Tilapia fish, fried curry leaves, onions and green chillies", ST:100, MT:200,LT:300, tray: "3M"},
+      {FoodTypeId: "Non-Veg", CategoryId: "Appetizers", Name: "Chicken Manchurian", image: "https://www.chilitochoc.com/wp-content/uploads/2020/06/ChickenManchurian1-1.jpg", Description: "Cubes of chicken fried & tossed in a tangy Chinese sauce with dash of Indian spices", ST:100, MT:200,LT:300, tray: "6M"},
+      ];
+      function mealType(event) {
+        debugger
+        document.getElementById('imgItem').src="data:image/png;base64,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";
+        document.getElementById('itemName').innerHTML="--";
+        document.getElementById('itemDesc').innerHTML="--";
+        document.getElementById('priceItem').innerHTML="$ 0/-";
+        document.getElementById('sizeTray').innerHTML="--";
+          selectedmealType=event.target.nextElementSibling.innerHTML;
+         /* result = jsObjects.filter(obj => {
+            return obj.FoodTypeId === selectedmealType;
+          });*/
+          result = jsObjects.filter((obj, O) => {
+            debugger
+            if (selectedmealType === "Veg") {
+              return obj.FoodTypeId === selectedmealType;
+  } else if(selectedmealType === "Non-Veg"){
+    return obj.FoodTypeId === selectedmealType;
+  } else{
+    return obj.FoodTypeId;
+  }
+          });
+          console.log(result);
+          propertyValues = result.map(a => a.CategoryId);
+          console.log(JSON.stringify(propertyValues));
+          let w = propertyValues.filter(function(item, pos) {
+        return propertyValues.indexOf(item) == pos;
+    })
+          w.unshift("Select Category");
+    console.log(w);
+          select2 = document.getElementById('selectCategory');
+    select2.innerHTML="";
+          document.getElementById('selectItems').innerHTML="";
+          document.getElementById('selectSize').innerHTML="";
+          document.getElementById('selectTray').innerHTML="";
+          for(var sc=0;sc < w.length; sc++){
+              var scOption = document.createElement("option");
+              scOption.value=w[sc];
+              scOption.text= w[sc];
+              selectCategory.appendChild(scOption);
+          }
+      }
+      document.querySelectorAll("input[type='radio'][name='mealType']").forEach((input) => {
+          input.addEventListener('change', mealType);
+      });     
+
+      
+    
+
+      function sel1(e){
+        document.getElementById('imgItem').src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAM1BMVEXu7u67u7vv7++4uLjg4ODCwsLk5OS2trby8vLd3d2+vr7q6urKysrHx8fY2NjV1dXPz8/wKvVCAAAHpUlEQVR4nO2d67qjKgyGBeQg4uH+r3YHBHW12oLVms7O92M9M2tay9twSCBhqopEIpFIJBKJRCKRSCQSiUQikUgkEolEIpFIJBKJRCKRSCQSiUQikUgk0jfFUesMwBOecaU+b9+/T4hdRPj7IsLfFxH+vojw90WEv6+7Cbl5r88ChJsJedsxAWKCrWTXknJsP2nlvYS8/kO2IyF688FnnNfc/c/Yi0V5mwPoGfvj7byckPN2VvWAabo8QEBsjzfgU4I3MkMYZ1FS/f28TBMC4XC4oRcT8kE/2GL1gbzJJmTs8Ei8mvDRFuPqA43LBxTqaEuvJXyeSrqVLbjNJ2TuqBFvJOSqoJMycbgNp5DsPv0l4VBEeHTBuJHQyAJAxuTBbnojYe5yn4x4cEm8j7BorWAP03BJG06j2Xr4FmE6UDCujBCWxEPnE9cRcsPbun+kkHUT1PdNIR/4Nc2+VGt2UC4jNCrERc/tnFVKuHb/NmSHbZirCLnT75t8rgSrt6bbawg5l+Um+ly62QrRriEc7wB8cOyvJMyObE8n7J776TWEN5kQ+ulGY64gNCVBw6na8F6vGYd3mZCx8ambXkH4yTA8ulYmPQ/ESwiLAr81ne3G3js8g5MHMZ8jEDSEQrim5cn1NKaqR3bgMWgJhe2rh917wKzL/QakhMI2m34zN6qUESehGHaDH24KQxCMhMKqV/sTvOpKnoaQUHRLG/wU4/8CE816W7XEQ8JHKJZ9UG6qZpQhqLSuX0W05imO/iHCBRBmFbdaAoWWzTw6CxCxES6xgGmfhpuwdbKjyd5axUZo08c/nuCkLyC1L3vbChlhClh5tbPsCZZC2twzDlyE6fCaV3b3DenMKfeZuAjlDPjqa4iImWsGKsLZPK/PL0Rq4+8Rxnn0rXGSqbPmU0yE0YTvXzyf4Wc8FBVhbEvGGVs8HM0aiYgI455RzgmUmDZfsjZHMBFOx4FZx6TJiBlrIiJCmW+X2d4Z3RQPoRhCU4pWuZwsOESEdfjkzL3j5N79FOHU5sydVdHkfh+ICKeRlZV9Ofdp/j7TDw+hnZqcGdrGQDlj1OIhjHNHbmSb/XI8hJNTmn0M978hfN+p8RDKf96GheMw2+R4CKec39zMr5jxlZFyi4dQ5H8XbHZMM9x0RIQq1w9bvdq8fyUiwuiHZdYjTM9t3+dZ4SGMeduZTo3LHrWICNN2d1Z8WOdONJgI09DKqUiwcbct46WYCKcFICfIj2M2KxBBRBjjp4J4IWtWQkUYE7Te9r20sZoVLWMiTHMNV6/XgBj9ZtYQoSJMe9mvT3jTIeq7LwIjIZsOB/nLoShkOkDMqz/BRTifce8jiq7wnBsX4XxEWpkdb0WkZMrsRyIjXKoKebtxzi1YyiXiWedOGAmX1HNuGvs331KwJRkscxBiJGRzKkJIqJlq88PPbkmnKQDESLgg+qSvthlGUK+qJSVqN1PjVwhFs+R9VdVzoRZvCx6GktD74C8qz0qS2rAShoKl7XaUp9DiJPSei9pg5KYtrlHESugZ/yZ6+0zTuivP18dL6JcIOSifre9vpKlUfwAPOWGAFMxK0GZtJiLC0irtM/Wdmplb656+U9lVeJfAiRLPVaTX1B8W3Qdxpr5Vf3hfDenGDSjXjMP8zPOTCb9VB+z3Nu9AjLv/XyG8oxRYsM17iK4irMCnfHMJwsmS/XaIchmhL15qVf0trUPmbxFW1Vdva99vxJWEp+um1mZ+ySbuUVTGhD9Mt1ou/2x8v56fVvkAI/1+fkl8y3Ip5ge2Pf1rUKxJ5RXOw9ROMjm2aYVumeOVlcvrZTi75/VcjGAaZ+EdteENi1mYX2t9jiCiisuxsR2Yp9PMjZ3QyVNuNXAvhQfg94V8FFhXdVgDeGu1daNjWvJGjNMUdgvJnnzMKBdCqQff2yqXECfCxSmZMm7A/RtDmgJvvVPtu/rgTKMH890emCMgdDp4jZ5w0DEl1nSTiSZC4dicSDpqmFf4oFvny4LAlnHTEcCAEBdcEFe6HrU/9vWEjKUmKt2tCIchAHvT9YHQSlPDu+Dd60vC0BJy609igLBdFcdG2Ilw5GFiMWC3AQi5pzPwK97r5dISnnrpLSC7AsLGtMJCx7SdmicYmDOnkC4Sml433mKD8YTQN/2ko5UZ9eRU+ypvmGmkAyEzpCf0I6gzLwk5lxbAmOfyWV7O+DvfRhiXgZB3UkrViG4AfXDz7hUKhBBxgHWgly6j6rGX+o6p/MgDQj8hwbKgpOD9dMkVb/pRK7y91E8zUiuYaaxYfj0NyUTos2akNcGGqbzCCoCO1V3QDRTamcYT8kpYIOyhwcEm0EnVHxv6runHnCcEc07OGcw1MpaSoicMqVuw4nd6DNcOdnFhXAiBzYWfmrtU3wY9U4EvE1zSZumluDAToR9cXRiQWnZSz+XcC+F0JbZf61epNKOBb6ZvWzWA29No1wfdBbMprtJN18Z5DqOGrnP9vHPUSuh53WrR62Uz343NXQdT6mi1FnKAbtBNko8fcq/4HINPvYuHG5OWkM//8zpMj/HW6i0xBuPL/zbwpaaTSCQSiUQikUgkEolEIpFIJBKJRCKRSCQSiUQikUgkEolEIpH+6D/+pF/9/+I9DwAAAABJRU5ErkJggg==";
+        document.getElementById('itemName').innerHTML="--";
+        document.getElementById('itemDesc').innerHTML="--";
+        document.getElementById('priceItem').innerHTML="$ 0/-";
+        document.getElementById('sizeTray').innerHTML="--";
+                  itemSelected = result.filter(obj1 => {
+                    return obj1.CategoryId === e.value;
+                  });
+
+                  var res1 = itemSelected.map(b => b.Name);
+                  localStorage.setItem("sitem",res1);
+                  res1.unshift("Select Item");
+
+                  console.log(JSON.stringify(res1));
+
+                  select2 = document.getElementById('selectItems');
+                  select2.innerHTML="";
+                  document.getElementById('selectSize').innerHTML="";
+                  document.getElementById('selectTray').innerHTML="";
+                  for(var si=0;si < res1.length; si++){
+                      var siOption = document.createElement("option");
+                      siOption.value=res1[si];
+                      siOption.text= res1[si];
+                      selectItems.appendChild(siOption);
+                  }
+                  
+      }
+
+      
+      function sel2(r){
+        document.getElementById('imgItem').src="data:image/png;base64,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";
+        document.getElementById('itemName').innerHTML="--";
+        document.getElementById('itemDesc').innerHTML="--";
+        document.getElementById('priceItem').innerHTML="$ 0/-";
+        document.getElementById('sizeTray').innerHTML="--";
+          var vsizeArray = ["0","ST", "MT", "LT"];
+                  sizeSelected = result.filter(obj2 => {
+                    return obj2.Name === r.value;
+                  });
+
+                                    
+                  select2 = document.getElementById('selectSize');
+                  select2.innerHTML="";
+                  document.getElementById('selectTray').innerHTML="";
+                  
+                  for(var ss=0;ss < sizeArray.length; ss++){
+                      var ssOption = document.createElement("option");
+                      ssOption.value=vsizeArray[ss];
+                      ssOption.text= sizeArray[ss];
+                      selectSize.appendChild(ssOption);
+                  }
+      }
+
+      function sel3(h){
+        document.getElementById('imgItem').src="data:image/png;base64,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";
+        document.getElementById('itemName').innerHTML="--";
+        document.getElementById('itemDesc').innerHTML="--";
+        document.getElementById('priceItem').innerHTML="$ 0/-";
+        document.getElementById('sizeTray').innerHTML="--";
+          var vtrayArray = ["0","3M", "6M", "9M"];
+          
+      var z=0;
+      for (const [key, value] of Object.entries(sizeSelected[0])) {
+        if(key === h.value){
+            z = value;
+        }
+      }
+
+                  select3 = document.getElementById('selectTray');
+                  select3.innerHTML="";
+                   for(var st=0;st < trayArray.length; st++){
+                      var stOption = document.createElement("option");
+                      stOption.value=vtrayArray[st];
+                      stOption.text= trayArray[st];
+                      selectTray.appendChild(stOption);
+                  }
+                  document.getElementById('imgItem').src=sizeSelected[0].image;
+                          document.getElementById('itemName').innerHTML=sizeSelected[0].Name;
+                          document.getElementById('itemDesc').innerHTML=sizeSelected[0].Description;
+                          document.getElementById('priceItem').innerHTML=z;
+      }
+
+      function sel4(t){
+          debugger;
+          document.getElementById('sizeTray').innerHTML="";
+          let trayPeople;
+          switch (t.value) {
+          case '3M':
+              trayPeople = "Order for 3 People";
+              break;
+          case '6M':
+              trayPeople = "Order for 6 People";
+              break;
+          case '9M':
+              trayPeople = "Order for 9 People";
+          }
+          document.getElementById('sizeTray').innerHTML=trayPeople;
+      }
+</script>
+</body>
+
+</html>
